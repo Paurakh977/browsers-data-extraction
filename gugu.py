@@ -78,8 +78,11 @@ def get_edge_url():
             app.connect(title_re=".*Microsoft​ Edge.*", found_index=0)
             dlg = app.top_window()
             wrapper = dlg.child_window(title="App bar", control_type="ToolBar")
-            url = wrapper.descendants(control_type='Edit')[0]
-            url=url.get_value()
+            try:
+                url = wrapper.descendants(control_type='Edit')[0]
+                url=url.get_value()
+            except Exception as e:
+                print(f"error in the module mero bhai \n{e}")
             try:
                 if "www." in url:
                     url=url.split("www.")[-1]
