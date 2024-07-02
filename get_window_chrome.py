@@ -10,16 +10,18 @@
 import pygetwindow as gw
 import time
 from gugu import google_chr
-mylist=list()
-try:
-    while True:
-        active_window = gw.getActiveWindow()
-        if active_window is not None:
-            if "Google Chrome" in (active_window.title):
+while True:
+    active_window = gw.getActiveWindow()
+    if (active_window is not None) and  ("Google Chrome" in (active_window.title)):
+            try:
                 title=google_chr()
-                if (title not in mylist):
-                    mylist.append(title)
+                print(title)
                 time.sleep(1)
-except KeyboardInterrupt:
-    print(mylist)
+            except Exception as e:
+                print("Errrorrr:",e)
+    else:
+        print("no chr")
+        time.sleep(1)
+
+
             
