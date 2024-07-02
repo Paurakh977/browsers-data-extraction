@@ -16,7 +16,7 @@ while True:
             try:
                 title=google_chr()
                 print(title)
-                time.sleep(1)
+                time.sleep(3)
             except Exception as e:
                 print("Errrorrr:",e)
     else:

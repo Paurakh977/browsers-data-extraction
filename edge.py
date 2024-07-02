@@ -8,12 +8,12 @@ try:
         if active_window is not None and "Microsoft​ Edge" in active_window.title:
             try:
                 print(get_edge_url())
+                time.sleep(3)
             except Exception as e:
                 print(f'THE ERROR is:{e}')                
         else:
             time.sleep(1)
-            print(active_window.title)
-            
+            print("no edge")       
 except KeyboardInterrupt:   
     pass
 
