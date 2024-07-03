@@ -12,7 +12,6 @@ tlds = [
   ".gov",
   ".edu",
   ".mil",
-
   # Country Code Top-Level Domains (ccTLDs)
   ".us",
   ".uk",
@@ -29,7 +28,6 @@ tlds = [
   ".nl",
   ".ru",
   ".np",
-
   # Newer and Specialized TLDs
   ".co",
   ".io",
@@ -37,7 +35,6 @@ tlds = [
   ".me",
   ".tv",
   ".xyz",
-
   # Others
   ".jobs",
   ".travel",
@@ -59,7 +56,10 @@ def google_chr():
     app.connect(title_re=".*Chrome.*", found_index=0)
     element_name="Address and search bar"
     dlg = app.top_window()
-    url = dlg.child_window(title=element_name, control_type="Edit").get_value()
+    try:
+        url = dlg.child_window(title=element_name, control_type="Edit").get_value()
+    except Exception as e:
+        print(f"error in the module for chrome \n error is:\n{e}")
     try:
         if "www." in url:
             url=url.split("www.")[-1]
@@ -82,7 +82,7 @@ def get_edge_url():
                 url = wrapper.descendants(control_type='Edit')[0]
                 url=url.get_value()
             except Exception as e:
-                print(f"error in the module mero bhai \n{e}")
+                print(f"error in edge module \n{e}")
             try:
                 if "www." in url:
                     url=url.split("www.")[-1]
