@@ -41,6 +41,15 @@ tlds = [
   ".mobi",
   ".coop"
 ]
+def extract_url(url):
+    if "www." in url:
+        url = url.split("www.")[-1]
+    if "https://" in url:
+        url = url.split('https://')[-1]
+    url = tld_checker(url)
+    while "." in url:
+        url = tld_checker(url)
+    return url
 
 def tld_checker(url):
     for tld in tlds:  
@@ -58,19 +67,11 @@ def google_chr():
     dlg = app.top_window()
     try:
         url = dlg.child_window(title=element_name, control_type="Edit").get_value()
+        return extract_url(url)
     except Exception as e:
         print(f"error in the module for chrome \n error is:\n{e}")
-    try:
-        if "www." in url:
-            url=url.split("www.")[-1]
-        if "https://" in url:
-            url=url.split('https://')[-1]
-                
-    finally:
-        url=tld_checker(url) 
-        while "."in url:
-            url=tld_checker(url)
-        return url
+        return None
+    
                   
 def get_edge_url():
         while True:
@@ -81,22 +82,28 @@ def get_edge_url():
             try:
                 url = wrapper.descendants(control_type='Edit')[0]
                 url=url.get_value()
+                return extract_url(url)
             except Exception as e:
                 print(f"error in edge module \n{e}")
-            try:
-                if "www." in url:
-                    url=url.split("www.")[-1]
-                if "https://" in url:
-                    url=url.split('https://')[-1]
-            finally:
-                url=tld_checker(url) 
-                while "."in url:
-                    url=tld_checker(url)
-                return url
+                return None
+            
         
-                
-                    
-        
+def get_fire_fox():
+    try:
+        app = Application(backend='uia').connect(title_re=".*Mozilla Firefox.*")
+        dlg = app.top_window()
+        url_bar = dlg.child_window(control_type="Edit", found_index=0)
+        url = url_bar.get_value()
+        return extract_url(url)
+    except Exception as e:
+        try:
+            url_bar = dlg.descendants(control_type="Edit")[0]
+            url = url_bar.get_value()
+            return extract_url(url)
+        except Exception as nested_e:
+            print(f"Error in Firefox module: {nested_e}")
+            return None
+    
 
 
             
