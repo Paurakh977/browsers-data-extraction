@@ -102,11 +102,4 @@ def get_fire_fox():
             return extract_url(url)
         except Exception as nested_e:
             print(f"Error in Firefox module: {nested_e}")
-            return None
-    
-
-
-            
-        
-    
-      
+            return None      
