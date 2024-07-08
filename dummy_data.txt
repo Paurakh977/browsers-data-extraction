@@ -1,0 +1,33 @@
+-- Dumping data for table `app_usage_info`
+--
+
+INSERT INTO `app_usage_info` (`tab_name`, `used_time`, `browser`, `SN`, `used_day`, `used_date`) VALUES
+('localhost/phpmyadmin/index', 5, 'Google Chrome', 1, 'Tuesday', '2024-07-09'),
+('youtube', 15, 'Firefox', 2, 'Wednesday', '2024-07-10'),
+('instagram', 20, 'Safari', 3, 'Thursday', '2024-07-11'),
+('facebook', 45, 'Opera', 4, 'Friday', '2024-07-12'),
+('twitter', 30, 'Microsoft Edge', 5, 'Saturday', '2024-07-13'),
+('reddit', 10, 'Google Chrome', 6, 'Sunday', '2024-07-14'),
+('linkedin', 25, 'Firefox', 7, 'Monday', '2024-07-15'),
+('whatsapp', 35, 'Safari', 8, 'Tuesday', '2024-07-16'),
+('snapchat', 40, 'Opera', 9, 'Wednesday', '2024-07-17'),
+('tiktok', 50, 'Microsoft Edge', 10, 'Thursday', '2024-07-18');
+-- Dumping additional data for table `app_usage_info`
+--
+
+INSERT INTO `app_usage_info` (`tab_name`, `used_time`, `browser`, `SN`, `used_day`, `used_date`) VALUES
+('google', 12, 'Microsoft Edge', 11, 'Monday', '2024-07-22'),
+('netflix', 25, 'Google Chrome', 12, 'Monday', '2024-07-22'),
+('hulu', 18, 'Firefox', 13, 'Monday', '2024-07-22'),
+('amazon', 33, 'Safari', 14, 'Monday', '2024-07-22'),
+('ebay', 7, 'Opera', 15, 'Monday', '2024-07-22'),
+('twitter', 14, 'Microsoft Edge', 16, 'Monday', '2024-07-22'),
+('reddit', 22, 'Google Chrome', 17, 'Monday', '2024-07-22'),
+('linkedin', 29, 'Firefox', 18, 'Monday', '2024-07-22'),
+('whatsapp', 38, 'Safari', 19, 'Monday', '2024-07-22'),
+('snapchat', 44, 'Opera', 20, 'Monday', '2024-07-22'),
+('tiktok', 50, 'Microsoft Edge', 21, 'Monday', '2024-07-22'),
+('zoom', 32, 'Google Chrome', 22, 'Monday', '2024-07-22'),
+('skype', 15, 'Firefox', 23, 'Monday', '2024-07-22'),
+('discord', 28, 'Safari', 24, 'Monday', '2024-07-22'),
+('slack', 36, 'Opera', 25, 'Monday', '2024-07-22');
